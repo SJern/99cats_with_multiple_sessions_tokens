@@ -1,0 +1,21 @@
+<h1>Sessions</h1>
+<table border="1">
+  <tr>
+    <td>Device</td>
+    <td>Location</td>
+    <td>Logged In</td>
+    <td>Logout button</td>
+  </tr>
+  <% @sessions.each do |session| %>
+      <tr>
+        <td> <%= "#{session.environment}" %></td>
+        <td> <%= "#{session.location}" %></td>
+        <td> <%= "#{session.created_at}" %></td>
+        <td>
+          <%= button_to "logout", session_path(session.id), method: :delete %>
+        </td>
+      </tr>
+
+  <% end %>
+
+</table>
